@@ -1,0 +1,9 @@
+************* Module delivery_system
+delivery_system.py:9:0: C0103: Constant name "next_id" doesn't conform to UPPER_CASE naming style (invalid-name)
+delivery_system.py:16:4: W0603: Using the global statement (global-statement)
+delivery_system.py:47:4: W0603: Using the global statement (global-statement)
+delivery_system.py:92:4: W0603: Using the global statement (global-statement)
+
+------------------------------------------------------------------
+Your code has been rated at 9.62/10 (previous run: 9.52/10, +0.10)
+

@@ -1,0 +1,26 @@
+{
+  "1": {
+    "customer": "Asha",
+    "items": [
+      "pizza",
+      "coke"
+    ],
+    "total": 290,
+    "status": "delivered"
+  },
+  "2": {
+    "customer": "Ravi",
+    "items": [
+      "burger",
+      "sushi"
+    ],
+    "total": 249,
+    "status": "placed"
+  },
+  "3": {
+    "customer": "",
+    "items": [],
+    "total": 0,
+    "status": "delivered"
+  }
+}

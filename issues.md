@@ -1,0 +1,10 @@
+| Issue | Type | Line(s) | Description | Fix Approach |
+|---|---|---|---|---|
+| B301 unsafe pickle deserialization | Security | 49 (original), removed | `restore_orders()` used `pickle.load()` on an untrusted backup file. | Replaced pickle persistence with JSON in `backup_orders()` and `restore_orders()` using `json.dump()` and `json.load()` with `with open(..., encoding="utf-8")`. |
+| B110 silent try/except/pass | Exception handling | 23-25 (original), removed | `update_order_status()` caught all exceptions with bare `except` and discarded them. | Replaced with explicit `if order_id not in orders` and `if status not in VALID_STATUSES` checks returning `False` and printing invalid IDs/statuses. |
+| E722 bare except | Style/Exception handling | 24 (original), removed | Bare `except` clause hid all errors. | Used specific exception types `(OSError, ValueError, json.JSONDecodeError)` in `read_menu_config()` and `restore_orders()`. |
+| E501 long lines | Style | 16 and 54 (original), removed | Lines exceeded 79 characters. | Broke the long print call and total calculation across multiple lines. |
+| Missing module/function docstrings | Style/Quality | 1-14, 14, 33, 45, 59, 68, 74, 90, 124, 136 | Pylint reported missing module and function docstrings. | Added a module docstring and docstrings for every function. |
+| Mutable default argument | Bug | 11 (original) | `create_order()` used `order_history=[]` as a default, sharing one list across calls. | Changed signature to `order_history=None` and initialized an empty list inside the function. |
+| Invalid restored data corruption | Bug/Security | 90-118 (final) | Restored backup data was assigned directly without validation. | Validated the loaded object and each order entry; skipped malformed orders; converted keys to integers and recomputed `next_id`. |
+"""
